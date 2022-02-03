@@ -10,6 +10,8 @@
     "@types/node": "^16.11.22",
     "@types/react": "^17.0.38",
     "@types/react-dom": "^17.0.11",
+    "mobx": "^6.3.13",
+    "mobx-react-lite": "^3.2.3",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-scripts": "5.0.0",
@@ -23,10 +25,20 @@
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
+    "parser": "@typescript-eslint/parser",
+    "plugins": ["mobx"],
     "extends": [
       "react-app",
-      "react-app/jest"
-    ]
+      "react-app/jest",
+      "plugin:mobx/recommended"
+    ],
+    "rules": {
+      "mobx/exhaustive-make-observable": "warn",
+      "mobx/unconditional-make-observable": "error",
+      "mobx/missing-make-observable": "error",
+      "mobx/missing-observer": "warn",
+      "mobx/no-anonymous-observer": "warn"
+    }
   },
   "browserslist": {
     "production": [
@@ -39,5 +51,11 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@typescript-eslint/parser": "^5.10.2",
+    "eslint": "^8.8.0",
+    "eslint-plugin-mobx": "^0.0.8",
+    "prettier": "^2.5.1"
   }
 }
